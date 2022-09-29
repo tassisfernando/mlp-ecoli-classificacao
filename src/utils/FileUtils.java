@@ -7,7 +7,9 @@ import java.io.PrintWriter;
 public class FileUtils {
 
     public final static String ARQUIVO_BASE_TREINO = "erroTreino.txt";
+    public final static String ARQUIVO_BASE_TREINO_CLASS = "erroTreinoClass.txt";
     public final static String ARQUIVO_BASE_TESTE = "erroTeste.txt";
+    public final static String ARQUIVO_BASE_TESTE_CLASS = "erroTesteClass.txt";
     public final static String ARQUIVO_EPOCAS = "epocas.txt";
 
     public static void fileWriter(String arquivo, String conteudo) throws IOException {
@@ -20,7 +22,9 @@ public class FileUtils {
 
     public static void clearFiles() throws IOException {
         FileWriter fw = new FileWriter(ARQUIVO_BASE_TREINO);
+        fw = new FileWriter(ARQUIVO_BASE_TREINO_CLASS);
         fw = new FileWriter(ARQUIVO_BASE_TESTE);
+        fw = new FileWriter(ARQUIVO_BASE_TESTE_CLASS);
         fw = new FileWriter(ARQUIVO_EPOCAS);
     }
 }

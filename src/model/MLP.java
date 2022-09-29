@@ -2,6 +2,7 @@ package model;
 
 import math.MathUtils;
 
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.System.arraycopy;
@@ -140,5 +141,14 @@ public class MLP {
     private void generateXArray(double[] xIn, double[] x) {
         arraycopy(xIn, 0, x, 0, xIn.length);
         x[x.length - 1] = 1D;
+    }
+
+    public double calculaErroClassificacao(double[] y, double[] out) {
+        double[] outTresh = Arrays.stream(out).map(Math::round).toArray();
+        double soma = 0d;
+        for (int i = 0; i < y.length; i++) {
+            soma += Math.abs(outTresh[i] - y[i]);
+        }
+        return soma > 0 ? 1 : 0;
     }
 }
