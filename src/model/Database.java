@@ -46,7 +46,7 @@ public class Database {
         List<Integer> testePos = RandomUtils.getRandomNumbers(MAX_INDEX_TESTE, MAX_INDEX_ECOLI);
 
         try {
-            File file = new File("ecoli.data");
+            File file = new File("files/ecoli.data");
             Scanner scn = new Scanner(file);
             int iTreino = 0;
             int iTeste = 0;
