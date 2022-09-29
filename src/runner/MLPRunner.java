@@ -11,7 +11,7 @@ import static utils.FileUtils.*;
 
 public class MLPRunner {
 
-    private static final int N_EPOCAS = 10000;
+    private static final int N_EPOCAS = 20000;
     private static final StringBuilder errosAproxTreino = new StringBuilder();
     private static final StringBuilder errosClassTreino = new StringBuilder();
     private static final StringBuilder errosAproxTeste = new StringBuilder();
@@ -53,6 +53,9 @@ public class MLPRunner {
                 erroEpAproxTeste += sumErro(y, out);
                 erroEpClassTeste += mlp.calculaErroClassificacao(y, out);
             }
+
+            erroEpClassTreino = erroEpClassTreino/dataTreino.length;
+            erroEpClassTeste = erroEpClassTeste/dataTeste.length;
 
             System.out.printf("Época: %s - ", (e+1));
             System.out.printf("Er. Aprox Treino: %6f - ", erroEpAproxTreino);
