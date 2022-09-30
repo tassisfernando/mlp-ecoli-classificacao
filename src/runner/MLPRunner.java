@@ -11,7 +11,7 @@ import static utils.FileUtils.*;
 
 public class MLPRunner {
 
-    private static final int N_EPOCAS = 20000;
+    private static final int N_EPOCAS = 100000;
     private static final StringBuilder errosAproxTreino = new StringBuilder();
     private static final StringBuilder errosClassTreino = new StringBuilder();
     private static final StringBuilder errosAproxTeste = new StringBuilder();
@@ -22,7 +22,7 @@ public class MLPRunner {
         FileUtils.clearFiles();
 
         final double NI = 0.001;
-        final int QTD_H = 2;
+        final int QTD_H = 6;
 
         Database dataModel = new Database();
         double[][][] dataTreino = dataModel.getDataTreino();
@@ -61,7 +61,7 @@ public class MLPRunner {
             System.out.printf("Er. Aprox Treino: %6f - ", erroEpAproxTreino);
             System.out.printf("Er. Class Treino: %6f - ", erroEpClassTreino);
             System.out.printf("Er. Aprox Teste: %6f - ", erroEpAproxTeste);
-            System.out.printf("Er. Class Teste: %6f\n\n", erroEpClassTeste);
+            System.out.printf("Er. Class Teste: %6f\n", erroEpClassTeste);
             escreveArquivos(e+1, erroEpAproxTreino, erroEpClassTreino, erroEpAproxTeste, erroEpClassTeste);
         }
     }
